@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for xmonitor on 2023-10-17T18:35:28+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "xmonitor"
+primary_region = "waw"
+
+[build]
+  image = "dockette/kumatron:latest"
+
+[http_service]
+  internal_port = 3001
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+

@@ -1,0 +1,9 @@
+version: "3.6"
+
+services:
+  app:
+    image: dockette/kumatron
+    ports:
+      - 3001:3001
+    env_file:
+      - .env
